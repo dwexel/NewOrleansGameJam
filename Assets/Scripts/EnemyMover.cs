@@ -6,20 +6,27 @@ using UnityEngine.AI;
 public class EnemyMover : MonoBehaviour
 {
     public GameObject TargetObj;
+    private NavMeshAgent agent;
+    private float tt = 0f;
+    private float updateFreq = 1.0f;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        agent.destination = TargetObj.transform.position;
-
-
+        agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (tt <= 0)
+        {
+            agent.destination = TargetObj.transform.position;
+            tt = updateFreq;
+        }
+        else
+        {
+            tt -= Time.deltaTime;
+        }
+
+        print(tt);
     }
 }
