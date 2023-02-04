@@ -7,10 +7,12 @@ public class DoorInteraction : MonoBehaviour
     public Animator Anim;
     public bool isLocked = false;
     private bool isOpened = false;
+    private KeyInteraction keyInteraction;
 
     // Start is called before the first frame update
     void Start()
     {
+        keyInteraction = GetComponent<KeyInteraction>();
         Anim = GetComponent<Animator>();
     }
 
@@ -25,7 +27,7 @@ public class DoorInteraction : MonoBehaviour
             if(isOpened == false)
                 if (Input.GetKey(KeyCode.E))
                 {
-                    Anim.SetInteger("State", 1);
+                    Anim.SetInteger("State", 2);
                     yield return new WaitForSeconds(0.3f);
                     isOpened = true;
                 }
@@ -34,7 +36,7 @@ public class DoorInteraction : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                Anim.SetInteger("State", 2);
+                Anim.SetInteger("State", 1);
                 yield return new WaitForSeconds(0.3f);
                 isOpened = false;
                 Anim.SetInteger("State", 0);
