@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: f601f339accf6214da83ad2bd3dd4ff3
+  - enabled: 1
+    path: Assets/PolygonFarm/Demo/Simplified Demo.unity
+    guid: b06c67fc0de7ed74eab0e86dad8101ab
   m_configObjects: {}
