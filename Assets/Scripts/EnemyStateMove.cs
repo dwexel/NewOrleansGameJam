@@ -7,13 +7,16 @@ using EnemyStates;
 
 public class EnemyStateMove : EnemyState
 {
-    public GameObject TargetObj;
+    private GameObject TargetObj;
+
     private NavMeshAgent agent;
+
     private float tt = 0f;
     private float updateFreq = 1.0f;
 
-    void Start()
+    public override void StateInit(GameObject player)
     {
+        TargetObj = player;
         agent = GetComponent<NavMeshAgent>();
     }
 
