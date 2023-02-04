@@ -9,28 +9,32 @@ public class DoorInteraction : MonoBehaviour
     private bool isOpened = false;
     private KeyInteraction keyInteraction;
 
-    // Start is called before the first frame update
     void Start()
     {
         keyInteraction = GetComponent<KeyInteraction>();
         Anim = GetComponent<Animator>();
     }
 
+    //  what does this do
     private void OnTriggerStay(Collider other)
     {
         StartCoroutine("DoorDelay");
     }
+
+    // coroutines
     IEnumerator DoorDelay()
     {
         if(isLocked == false)
         {
-            if(isOpened == false)
+            if (isOpened == false)
+            {
                 if (Input.GetKey(KeyCode.E))
                 {
                     Anim.SetInteger("State", 2);
                     yield return new WaitForSeconds(0.3f);
                     isOpened = true;
                 }
+            }
         }
         if(isOpened == true)
         {
@@ -45,8 +49,8 @@ public class DoorInteraction : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
+    //}
 }
