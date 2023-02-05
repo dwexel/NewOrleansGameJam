@@ -8,23 +8,16 @@ using EnemyStates;
 public class EnemyStateHandler : MonoBehaviour
 {
     public GameObject player;
-
     private EnemyState state;
-
-    private void Switch(EnemyState s)
-    {
-
-    }
 
     void Start()
     {
-        state = GetComponent<EnemyStateMove>();
-        state.StateInit(player);
-
+        EnemyState s = GetComponent<EnemyStateMove>();
+        Switch(s);
 
         EnemyState[] states = GetComponents<EnemyState>();
-        foreach (EnemyState s in states)
-            print(s);
+        foreach (EnemyState ss in states)
+            print(ss);
 
     }
 
@@ -32,19 +25,25 @@ public class EnemyStateHandler : MonoBehaviour
     {
         state.StateUpdate();
 
-
-        //print("here");
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Switch(GetComponent<EnemyStateWander>());
-
-
-            state = GetComponent<EnemyStateWander>();
-            state.StateInit(player);
-            state.StateEnter();
+            //EnemyState s = GetComponent<EnemyStateWander>();
+            EnemyState s = GetComponent<EnemyStateSearching>();
+            Switch(s);
         }
     }
+
+
+    private void Switch(EnemyState s)
+    {
+        state = s;
+        if (!state.initialized)
+            state.StateInit(player);
+            state.initialized = true;
+        state.StateEnter();
+    }
+
+
 }
 
 namespace EnemyStates
@@ -53,13 +52,13 @@ namespace EnemyStates
     {
         public bool initialized;
 
-
         virtual public void StateUpdate()
         {
         }
 
         virtual public void StateInit(GameObject player)
         {
+            this.initialized = true;
         }
 
         virtual public void StateEnter()

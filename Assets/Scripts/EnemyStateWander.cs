@@ -7,12 +7,19 @@ using EnemyStates;
 
 public class EnemyStateWander : EnemyState
 {
-
     private GameObject player;
-
     private NavMeshAgent agent;
 
-    private void newDest(Vector3 target)
+    // change speed
+    public override void StateInit(GameObject p)
+    {
+        player = p;
+        agent = GetComponent<NavMeshAgent>();
+
+        Vector3 pl = player.transform.position;
+        randDest(pl);
+    }
+    private void randDest(Vector3 target)
     {
         float dev = 10f;
 
@@ -22,24 +29,12 @@ public class EnemyStateWander : EnemyState
         agent.destination = new Vector3(randX, target.y, randZ);
     }
 
-
-
-
-    public override void StateInit(GameObject p)
-    {
-        player = p;
-        agent = GetComponent<NavMeshAgent>();
-
-        Vector3 pl = player.transform.position;
-        newDest(pl);
-    }
-
     public override void StateUpdate()
     {
         if (agent.remainingDistance < 2.0)
         {
             print("new target");
-            newDest(player.transform.position);
+            randDest(player.transform.position);
         }
     }
 }

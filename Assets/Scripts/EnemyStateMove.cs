@@ -8,7 +8,6 @@ using EnemyStates;
 public class EnemyStateMove : EnemyState
 {
     private GameObject TargetObj;
-
     private NavMeshAgent agent;
 
     private float tt = 0f;
