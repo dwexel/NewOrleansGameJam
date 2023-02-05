@@ -203,7 +203,8 @@ GameObject:
   - component: {fileID: 401817369}
   - component: {fileID: 401817368}
   - component: {fileID: 401817367}
-  - component: {fileID: 401817371}
+  - component: {fileID: 401817372}
+  - component: {fileID: 401817373}
   m_Layer: 0
   m_Name: Note
   m_TagString: Untagged
@@ -283,14 +284,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401817366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.29, y: 0, z: -2.39}
+  m_LocalPosition: {x: -5.29, y: -0.559, z: -2.39}
   m_LocalScale: {x: 0.1, y: 0.102740005, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &401817371
+--- !u!114 &401817372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401817366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbaf44645c0348d4d9e603a4f154a0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _noteImage: {fileID: 835431608}
+--- !u!65 &401817373
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -298,11 +312,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401817366}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17.619213, y: 0, z: 15.293612}
-  m_Center: {x: -2.013009, y: 1.110223e-16, z: -0.7130176}
+  m_Size: {x: 21.24633, y: 4.0842667, z: 25.027248}
+  m_Center: {x: -0.11708379, y: 2.065206, z: 2.3481882}
 --- !u!1 &501462102
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +541,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835431606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -540,7 +554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f0c6cb6fa9cf1bc478d1db3c925d3ccb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd3bb3b4228c36c4785c2ecb9930a4f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1032,6 +1046,14 @@ PrefabInstance:
     - target: {fileID: 2278986282889088667, guid: 58a72eafc56678d4e8f76d104cecbd39, type: 3}
       propertyPath: m_Name
       value: FirstPersonController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278986282889088667, guid: 58a72eafc56678d4e8f76d104cecbd39, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278986283897585525, guid: 58a72eafc56678d4e8f76d104cecbd39, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58a72eafc56678d4e8f76d104cecbd39, type: 3}
